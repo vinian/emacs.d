@@ -24,10 +24,20 @@
 (add-hook 'racer-mode-hook #'eldoc-mode)
 (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
 
+
+(setq rustc-sysroot-cmd
+      (concat (getenv "HOME") "/.cargo/bin/rustc" " --print sysroot"))
+(setq my-rustc-sysroot
+      (substring
+       (shell-command-to-string rustc-sysroot-cmd) 0 -1))
+(setq my-rust-src-path
+      (s-replace "nightly" "stable"
+                 (concat my-rustc-sysroot "/lib/rustlib/src/rust/src")))
+
 (add-hook 'rust-mode-hook
           '(lambda ()
              (setq racer-cmd (concat (getenv "HOME") "/.cargo/bin/racer"))
-             (setq racer-rust-src-path (concat (getenv "HOME") "/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"))
+             (setq racer-rust-src-path my-rust-src-path)
              (local-set-key (kbd "TAB") #'company-indent-or-complete-common)
              (electric-pair-mode 1)))
 
