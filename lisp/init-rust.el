@@ -36,5 +36,10 @@
 (defun my-rust-mode-hook ()
   (hs-minor-mode 1))
 
+; auto format after save
+(setq rust-format-on-save t)
+
+(setq company-tooltip-align-annotations t)
+
 (provide 'init-rust)
 ;;; init-rust.el ends here
