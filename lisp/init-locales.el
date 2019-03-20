@@ -50,5 +50,13 @@
 ;; 光标靠近指针时，指针自动让开
 (mouse-avoidance-mode 'animate)
 
+(setq my-bin-path
+      (concat
+       (getenv "PATH")
+       (concat ":" (getenv "HOME") "/.cargo/bin")))
+(setenv "PATH" my-bin-path)
+(setq exec-path (split-string my-bin-path path-separator))
+
+
 (provide 'init-locales)
 ;;; init-locales.el ends here
