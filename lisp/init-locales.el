@@ -58,5 +58,11 @@
 (setq exec-path (split-string my-bin-path path-separator))
 
 
+;; rebind emacs options keys
+(if (eq system-type 'darwin)
+    (progn
+      (setq mac-option-modifier 'meta)
+      (setq mac-command-modifier 'super)))
+
 (provide 'init-locales)
 ;;; init-locales.el ends here
