@@ -4,6 +4,10 @@
 
 (require-package 'color-theme-sanityinc-solarized)
 (require-package 'color-theme-sanityinc-tomorrow)
+(require-package 'base16-theme)
+(require-package 'zenburn-theme)
+(require-package 'solarized-theme)
+(require-package 'moe-theme)
 
 ;; If you don't customize it, this is the theme you get.
 (setq-default custom-enabled-themes '(sanityinc-tomorrow-bright))
