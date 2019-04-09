@@ -62,7 +62,7 @@
 (when (eq system-type 'darwin)
   (progn
     (setq mac-command-modifier 'super)
-    (setq mac-option-modifier 'metal)
+    (setq mac-option-modifier 'meta)
     (setq mac-control-modifier 'control)
     (setq ns-function-modifier 'hyper)))
 
