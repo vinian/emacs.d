@@ -59,10 +59,12 @@
 
 
 ;; rebind emacs options keys
-(if (eq system-type 'darwin)
-    (progn
-      (setq mac-option-modifier 'meta)
-      (setq mac-command-modifier 'super)))
+(when (eq system-type 'darwin)
+  (progn
+    (setq mac-command-modifier 'super)
+    (setq mac-option-modifier 'metal)
+    (setq mac-control-modifier 'control)
+    (setq ns-function-modifier 'hyper)))
 
 (provide 'init-locales)
 ;;; init-locales.el ends here
