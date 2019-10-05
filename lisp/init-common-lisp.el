@@ -48,5 +48,16 @@
 (define-key lisp-mode-map (kbd "C-c l") 'lispdoc)
 
 
+;;(set-default-font "-1ASC-Liberation Mono-normal-normal-normal-*-20-*-12-*-*-0-iso10646-1")
+
+(cond
+ ((string-equal system-type "gnu/linux")
+  (progn
+    (add-to-list 'default-frame-alist
+                 '(font . "DejaVu Sans Mono-16")))))
+
+
+
+
 (provide 'init-common-lisp)
 ;;; init-common-lisp.el ends here
