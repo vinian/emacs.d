@@ -2,6 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
+(require-package 'protobuf-mode)
+
 (defun sanityinc/utf8-locale-p (v)
   "Return whether locale string V relates to a UTF-8 locale."
   (and v (string-match "UTF-8" v)))
@@ -65,6 +67,16 @@
     (setq mac-option-modifier 'meta)
     (setq mac-control-modifier 'control)
     (setq ns-function-modifier 'hyper)))
+
+(require 'protobuf-mode)
+(defconst my-protobuf-style
+  '((c-basic-offset . 2)
+    (indent-tabs-mode . nil)))
+
+(add-hook 'protobuf-mode-hook
+          (lambda () (c-add-style "my-style" my-protobuf-style t)))
+
+(add-to-list 'auto-mode-alist '("\\.pb\\'" . protobuf-mode))
 
 (provide 'init-locales)
 ;;; init-locales.el ends here

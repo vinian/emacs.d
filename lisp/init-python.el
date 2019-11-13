@@ -2,12 +2,16 @@
 ;;; Commentary:
 ;;; Code:
 
+(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+
+
 (setq auto-mode-alist
       (append '(("SConstruct\\'" . python-mode)
                 ("SConscript\\'" . python-mode))
               auto-mode-alist))
 
 (require-package 'pip-requirements)
+(require-package 'jedi)
 
 (when (maybe-require-package 'anaconda-mode)
   (after-load 'python
@@ -17,6 +21,9 @@
     (after-load 'company
       (after-load 'python
         (push 'company-anaconda company-backends)))))
+
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:complete-on-dot t)
 
 
 (provide 'init-python)
