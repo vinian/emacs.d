@@ -5,6 +5,7 @@
 ;;; Kubernetes
 
 
+(require-package 'k8s-mode)
 (require 'k8s-mode)
 
 (provide 'init-k8s)
