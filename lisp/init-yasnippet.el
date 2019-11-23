@@ -1,8 +1,8 @@
-;;; init-yasnippet.el --- Work with Kubernetes configurations -*- lexical-binding: t -*-
+;;; init-yasnippet.el --- Work with Yansnippet configurations -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
 
-;;; Kubernetes
+;;; Yansnippet
 
 
 (require-package 'yasnippet)
